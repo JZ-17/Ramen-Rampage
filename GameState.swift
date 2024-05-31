@@ -8,14 +8,15 @@
 import Foundation
 
 class GameState: ObservableObject {
+    // Establish Generators and set values
     @Published var points = 0
     @Published var pointsPerSecond = 0
     @Published var pointGenerators:[PointGenerator] = [
-        PointGenerator(name: "Point Generator #1", pointsPerSecond: 1, price:50, level: 0),
-        PointGenerator(name: "Point Generator #2", pointsPerSecond: 2, price:100, level: 0),
-        PointGenerator(name: "Point Generator #3", pointsPerSecond: 5, price:250, level: 0),
-        PointGenerator(name: "Point Generator #4", pointsPerSecond: 10, price:500, level: 0),
-        PointGenerator(name: "Point Generator #5", pointsPerSecond: 25, price:1000, level: 0)
+        PointGenerator(name: "Ramen Worker", pointsPerSecond: 1, price: 50, level: 0),
+        PointGenerator(name: "Workstation", pointsPerSecond: 2, price: 2000, level: 0),
+        PointGenerator(name: "Panda Guard", pointsPerSecond: 5, price: 10000, level: 0),
+        PointGenerator(name: "Lucky Cat", pointsPerSecond: 10, price: 50000, level: 0),
+        PointGenerator(name: "Golden Egg", pointsPerSecond: 25, price: 100000, level: 0)
     ]
     
     var time: Timer?
@@ -38,6 +39,7 @@ class GameState: ObservableObject {
             var newPointGenerators = self.pointGenerators
             let index = newPointGenerators.firstIndex(where: {$0.id == pointGenerator.id})!
             newPointGenerators[index].level += 1
+            newPointGenerators[index].price *= (index + 2) // Allows Game to scale accordingly
             self.pointGenerators = newPointGenerators
         }
     }
