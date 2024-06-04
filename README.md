@@ -1,4 +1,4 @@
-Ramen Clicker is a fun new incremental-style game! You has become the newest owner of Ichiraku Ramen and are now aspiring to become the fastest Ramen producer in the world.
+Ramen Ramage is a fun new incremental-style game! You have become the newest owner of Ichiraku Ramen and aspire to become the fastest Ramen producer in the world.
 
 Continuously upgrade your restaurant by buying new features to help you achieve your goal!
 
