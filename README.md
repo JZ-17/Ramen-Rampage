@@ -2,4 +2,5 @@ Ramen Clicker is a fun new incremental-style game! You has become the newest own
 
 Continuously upgrade your restaurant by buying new features to help you achieve your goal!
 
-Good Luck and Have Fun!
+Good Luck, and Have Fun! With love!
+JZJB Productions
