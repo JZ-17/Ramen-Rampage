@@ -4,4 +4,4 @@ Continuously upgrade your restaurant by buying new features to help you achieve 
 
 Good Luck, and Have Fun! With love!
 
-JZJB Productions
+JZ-JB Productions
