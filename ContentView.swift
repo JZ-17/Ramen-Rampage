@@ -8,8 +8,6 @@
 import UIKit
 import SwiftUI
 
-
-
 struct ContentView: View {
     @ObservedObject var gameState = GameState()
 
@@ -27,25 +25,25 @@ struct ContentView: View {
 
 
                 // Points Tracker
-                Text("Points: \(gameState.points)")
+                Text("Bowls: \(gameState.points)")
                     .font(.custom("PressStart2P-Regular", size: 24))
                     .foregroundColor(Color.black)
                     .overlay(
-                        Text("Points: \(gameState.points)")
+                        Text("Bowls: \(gameState.points)")
                             .font(.custom("PressStart2P-Regular", size: 24))
                             .foregroundColor(Color.white)
                             .offset(x: 1, y: 1)
                     )
                     
                     
-
+                // BPS Tracker
                 if self.gameState.pointsPerSecond > 0 {
-                    Text("PPS: \(gameState.pointsPerSecond)")
-                        .font(.custom("PressStart2P-Regular", size: 18))
+                    Text("Bowls Per Second: \(gameState.pointsPerSecond)")
+                        .font(.custom("PressStart2P-Regular", size: 14))
                         .foregroundColor(Color.black)
                         .overlay(
-                            Text("PPS: \(gameState.pointsPerSecond)")
-                                .font(.custom("PressStart2P-Regular", size: 18))
+                            Text("Bowls Per Second: \(gameState.pointsPerSecond)")
+                                .font(.custom("PressStart2P-Regular", size: 14))
                                 .foregroundColor(Color.white)
                                 .offset(x: 1, y: 1)
                         )
@@ -56,17 +54,56 @@ struct ContentView: View {
             Spacer() // Optional, to push the List to the right
 
             List(gameState.pointGenerators.enumerated().filter { (index, generator) in
-                index == 0 || gameState.pointGenerators[index - 1].level >= 10
+                index == 0 || gameState.pointGenerators[index - 1].level >= 0
             }, id: \.element.id) { index, pointGenerator in
                 HStack {
                     VStack(alignment: .leading) {
                         Text(pointGenerator.name)
                             .font(.headline)
+                            .font(.custom("PressStart2P-Regular", size: 12))
+                            .foregroundColor(Color.black)
+                            .overlay(
+                                Text(pointGenerator.name)
+                                    .font(.headline)
+                                    .font(.custom("PressStart2P-Regular", size: 12))
+                                    .foregroundColor(Color.white)
+                                    .offset(x: 1, y: 1)
+                            )
+                        
                         Text("Level: \(pointGenerator.level)")
-                        Text("Points Per Second: \(pointGenerator.pointsPerSecond)")
-                        Text("Price: \(pointGenerator.price) points")
+                            .font(.custom("PressStart2P-Regular", size: 12))
+                            .foregroundColor(Color.black)
+                            .overlay(
+                                Text("Level: \(pointGenerator.level)")
+                                    .font(.custom("PressStart2P-Regular", size: 12))
+                                    .foregroundColor(Color.white)
+                                    .offset(x: 1, y: 1)
+                            )
+                        Text("BPS: \(pointGenerator.pointsPerSecond)")
+                            .font(.custom("PressStart2P-Regular", size: 12))
+                            .foregroundColor(Color.black)
+                            .overlay(
+                                Text("BPS: \(pointGenerator.pointsPerSecond)")
+                                    .font(.custom("PressStart2P-Regular", size: 12))
+                                    .foregroundColor(Color.white)
+                                    .offset(x: 1, y: 1)
+                            )
+                        Text("$\(pointGenerator.price)")
+                            .font(.custom("PressStart2P-Regular", size: 12))
+                            .foregroundColor(Color.black)
+                            .overlay(
+                                Text("$\(pointGenerator.price)")
+                                    .font(.custom("PressStart2P-Regular", size: 12))
+                                    .foregroundColor(Color.white)
+                                    .offset(x: 1, y: 1)
+                            )
                     }
                     Spacer()
+                    Image(pointGenerator.imageName) // Load the image based on generator's imageName property
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 90, height: 90) // Adjust the size of the image as needed
+                        .padding() // Add padding to adjust spacing between text and image
                     Button(action: { self.gameState.purchase(pointGenerator: pointGenerator) }) {
                         Rectangle()
                             .frame(width: 100, height: 50) // Adjust the size of the rectangle to make the press area smaller
@@ -80,25 +117,24 @@ struct ContentView: View {
                     }
                     .buttonStyle(BorderedButtonStyle())
                     .disabled(self.gameState.points < pointGenerator.price)
-
                 }
                 .padding()
                 .background(
                     Color.white.opacity(0) // Set the translucent background color
-                            .overlay(
-                                Image("List Background") // Set the background image for each cell
-                                    .resizable()
-                                    .frame(width: 686, height: 256) // Adjust the frame size as needed
-                                    .offset(x: 0,y :2)
-                                    
-                            )
-                    )
+                        .overlay(
+                            Image("List Background") // Set the background image for each cell
+                                .resizable()
+                                .frame(width: 686, height: 320) // Adjust the frame size as needed
+                                .offset(x: 0,y :2)
+                        )
+                )
             }
             .listStyle(PlainListStyle()) // Set list style to Translucent
             .background(
                 Color.white.opacity(0) // Set the translucent background color for the List
             )
             .frame(maxWidth: .infinity) // Make the List take the remaining space
+
 
         }
         .padding() // Padding around the HStack for some spacing
@@ -115,3 +151,4 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
