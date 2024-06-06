@@ -12,11 +12,11 @@ class GameState: ObservableObject {
     @Published var points = 0
     @Published var pointsPerSecond = 0
     @Published var pointGenerators:[PointGenerator] = [
-        PointGenerator(name: "Ramen Worker", pointsPerSecond: 1, price: 50, level: 0),
-        PointGenerator(name: "Workstation", pointsPerSecond: 2, price: 2000, level: 0),
-        PointGenerator(name: "Panda Guard", pointsPerSecond: 5, price: 10000, level: 0),
-        PointGenerator(name: "Lucky Cat", pointsPerSecond: 10, price: 50000, level: 0),
-        PointGenerator(name: "Golden Egg", pointsPerSecond: 25, price: 100000, level: 0)
+        PointGenerator(name: "Employee", pointsPerSecond: 1, price: 50, level: 0, imageName: "Ramen Worker"),
+        PointGenerator(name: "Workstation", pointsPerSecond: 2, price: 2000, level: 0, imageName: "Workstation"),
+        PointGenerator(name: "Panda Guard", pointsPerSecond: 5, price: 10000, level: 0, imageName: "Panda Guard"),
+        PointGenerator(name: "Golden Egg", pointsPerSecond: 10, price: 50000, level: 0, imageName: "Golden Egg"),
+        PointGenerator(name: "Lucky Cat", pointsPerSecond: 25, price: 100000, level: 0, imageName:"Lucky Cat")
     ]
     
     var time: Timer?
