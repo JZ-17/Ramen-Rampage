@@ -5,3 +5,9 @@ Continuously upgrade your restaurant by buying new features to help you achieve 
 Good Luck, and Have Fun! With love!
 
 JZ-JB Productions
+
+Potential future updates include:
+- Online leaderboard feature
+- Adding friends feature
+- Moving Sprites
+- Reset Feature
