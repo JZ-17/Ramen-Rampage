@@ -1,15 +1,19 @@
-<h1 align-"center">Ramen Ramage!</h1>
+<h1 align="center">Ramen Ramage!</h1>
 
-<h2 align-"center"> Ramen Rampageis a fun new incremental-style game! You have become the newest owner of Ichiraku Ramen and aspire to become the fastest Ramen producer in the world.</h2>
+<p> Ramen Rampage is a fun new incremental-style game! You have become the newest owner of Ichiraku Ramen and aspire to become the fastest Ramen producer in the world.</p>
 
-Continuously upgrade your restaurant by buying new features to help you achieve your goal! This game was designed entirely within XCode and is our first project within it :)
+<p> Continuously upgrade your restaurant by buying new features to help you achieve your goal! This game was designed entirely within XCode and is our first project within it :)</p>
 
-Good Luck, and Have Fun! With love!
+<p>Good Luck, and Have Fun! With love!</p>
 
 JZ-JB Productions
-
-Potential future updates include:
-- Online leaderboard feature
-- Adding friends feature
-- Moving Sprites
-- Reset Feature
+<ul>
+<div align="center>
+  <h2>Future Updates:</h2>
+  <ul>
+    <li>Online leaderboard feature<\li>
+    <li>Adding friends feature</li>
+    <li>Moving Sprites</li>
+    <li>Reset Feature</li>
+  <\ul>
+<\div>
